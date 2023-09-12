@@ -40,7 +40,7 @@ public class CountProgramming extends Menu<String> {
     
     public void countLetter(String str) {
         LinkedHashMap<String, Integer> lhm = new LinkedHashMap<String, Integer>();
-        String[] strSplit = str.split("\\s+|\\p{Punct}");
+        String[] strSplit = str.split("[\\s\\p{Punct}]+");
         for (int i = 0; i < strSplit.length; i++) {
             String ch = strSplit[i];
             int count = 0;
@@ -62,10 +62,10 @@ public class CountProgramming extends Menu<String> {
         String temp = str;
         temp = temp.replaceAll("[\\s\\p{Punct}]+", "");
         for (int i = 0; i < temp.length(); i++) {
-            char ch = str.charAt(i);
+            char ch = temp.charAt(i);
             int count = 0;
             for (int j = 0; j < temp.length(); j++) {
-                if (str.charAt(j)==ch) {
+                if (temp.charAt(j)==ch) {
                     count++;
                 }
             }
